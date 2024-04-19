@@ -1,0 +1,185 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnyoffo06ia4v"]
+
+[ext_resource type="Script" path="res://images.gd" id="1_bcyob"]
+[ext_resource type="Texture2D" uid="uid://diq23b042lopk" path="res://card_templates/betaactiontemplate01.png" id="2_81d3k"]
+[ext_resource type="SystemFont" uid="uid://boudvhjemcqnk" path="res://Liberation_Sans.tres" id="3_h780n"]
+
+[sub_resource type="SystemFont" id="SystemFont_fk6sv"]
+font_names = PackedStringArray("Liberation Sans")
+font_weight = 600
+
+[node name="Images" type="Control" node_paths=PackedStringArray("view", "template", "nameplate_label", "faceplate_label", "pitch_label", "cost_label", "attack_label", "defense_label", "maintext_label", "card_progress")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bcyob")
+view = NodePath("SubViewport")
+template = NodePath("SubViewport/TextureRect")
+nameplate_label = NodePath("SubViewport/nameplate")
+faceplate_label = NodePath("SubViewport/faceplate")
+pitch_label = NodePath("SubViewport/pitch")
+cost_label = NodePath("SubViewport/cost")
+attack_label = NodePath("SubViewport/attack")
+defense_label = NodePath("SubViewport/defense")
+maintext_label = NodePath("SubViewport/card_text")
+card_progress = NodePath("VBoxContainer/ProgressBar")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+handle_input_locally = false
+msaa_2d = 3
+size = Vector2i(476, 665)
+render_target_update_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_81d3k")
+stretch_mode = 2
+
+[node name="cost" type="Label" parent="SubViewport"]
+offset_left = 406.0
+offset_top = 10.0
+offset_right = 459.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h780n")
+theme_override_font_sizes/font_size = 40
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="pitch" type="Label" parent="SubViewport"]
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h780n")
+theme_override_font_sizes/font_size = 40
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="attack" type="Label" parent="SubViewport"]
+offset_left = 17.0
+offset_top = 590.0
+offset_right = 70.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h780n")
+theme_override_font_sizes/font_size = 40
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="defense" type="Label" parent="SubViewport"]
+offset_left = 406.0
+offset_top = 590.0
+offset_right = 459.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h780n")
+theme_override_font_sizes/font_size = 40
+text = "1asdf"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="nameplate" type="Label" parent="SubViewport"]
+offset_left = 76.0
+offset_top = 2.0
+offset_right = 400.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h780n")
+theme_override_font_sizes/font_size = 40
+text = "GgPph"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="faceplate" type="Label" parent="SubViewport"]
+offset_left = 43.0
+offset_top = 320.0
+offset_right = 433.0
+offset_bottom = 387.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h780n")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="card_text" type="RichTextLabel" parent="SubViewport"]
+offset_left = 16.0
+offset_top = 394.0
+offset_right = 460.0
+offset_bottom = 591.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_h780n")
+theme_override_fonts/bold_font = SubResource("SystemFont_fk6sv")
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+bbcode_enabled = true
+text = "Action: Bond 1, then Bond X, then Bond."
+scroll_active = false
+
+[node name="jsonDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(512, 512)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.json")
+use_native_dialog = true
+
+[node name="cardDialog" type="FileDialog" parent="."]
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(512, 512)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+filters = PackedStringArray("")
+use_native_dialog = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Progress_label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rendering Cards:"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Progress_done" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Done!"
+
+[connection signal="canceled" from="jsonDialog" to="." method="_on_cancel"]
+[connection signal="file_selected" from="jsonDialog" to="." method="_on_json_selected"]
+[connection signal="canceled" from="cardDialog" to="." method="_on_cancel"]
+[connection signal="dir_selected" from="cardDialog" to="." method="_on_output_selected"]

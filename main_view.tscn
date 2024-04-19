@@ -1,0 +1,312 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwyit7631hf81"]
+
+[ext_resource type="Script" path="res://MainScript.gd" id="1_malgt"]
+[ext_resource type="Script" path="res://DeckExporter.cs" id="2_o18ac"]
+
+[node name="MainView" type="Control" node_paths=PackedStringArray("cardContainer", "deckContainer", "factionDropdown", "typeDropdown", "subfactionDropdown", "cardCountLabel", "charactersContainer", "generalContainer", "subfaction1Container", "subfaction2Container", "subfaction3Container", "genericsContainer", "subfaction1Label", "subfaction2Label", "subfaction3Label", "saveButton", "loadButton", "saveFileDialog", "loadFileDialog", "exportToPDFFileDialog", "exportToTTSFileDialog", "fileMenuButton", "cardPNGContainer", "deckExporter")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_malgt")
+cardContainer = NodePath("BGPanel/HBoxContainer/ScrollContainer2/CardContainer")
+deckContainer = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer")
+factionDropdown = NodePath("BGPanel/FilterDropdownContainer/FactionDropdown")
+typeDropdown = NodePath("BGPanel/FilterDropdownContainer/TypeDropdown")
+subfactionDropdown = NodePath("BGPanel/FilterDropdownContainer/SubfactionDropdown")
+cardCountLabel = NodePath("BGPanel/CardCountLabel")
+charactersContainer = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Characters/CharactersContainer")
+generalContainer = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/General/GeneralContainer")
+subfaction1Container = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction1/Subfaction1Container")
+subfaction2Container = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction2/Subfaction2Container")
+subfaction3Container = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction3/Subfaction3Container")
+genericsContainer = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Generic/GenericContainer")
+subfaction1Label = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction1/Subfaction1Label")
+subfaction2Label = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction2/Subfaction2Label")
+subfaction3Label = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction3/Subfaction3Label")
+saveButton = NodePath("BGPanel/HBoxContainer2/SaveButton")
+loadButton = NodePath("BGPanel/HBoxContainer2/LoadButton")
+saveFileDialog = NodePath("SaveFileDialog")
+loadFileDialog = NodePath("LoadFileDialog")
+exportToPDFFileDialog = NodePath("ExportToPDFFileDialog")
+exportToTTSFileDialog = NodePath("ExportToTTSFileDialog")
+fileMenuButton = NodePath("BGPanel/HBoxContainer2/FileMenuButton")
+cardPNGContainer = NodePath("SubViewport/GridContainer")
+deckExporter = NodePath("DeckExporter")
+
+[node name="BGPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BGPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BGPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckContainer" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Characters" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer"]
+layout_mode = 2
+
+[node name="CharactersLabel" type="Label" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Characters"]
+layout_mode = 2
+text = "Characters"
+horizontal_alignment = 1
+
+[node name="CharactersContainer" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Characters"]
+layout_mode = 2
+
+[node name="General" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer"]
+layout_mode = 2
+
+[node name="GeneralLabel" type="Label" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/General"]
+layout_mode = 2
+text = "General"
+horizontal_alignment = 1
+
+[node name="GeneralContainer" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/General"]
+layout_mode = 2
+
+[node name="Subfaction1" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer"]
+layout_mode = 2
+
+[node name="Subfaction1Label" type="Label" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction1"]
+layout_mode = 2
+text = "Subfaction 1"
+horizontal_alignment = 1
+
+[node name="Subfaction1Container" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction1"]
+layout_mode = 2
+
+[node name="Subfaction2" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer"]
+layout_mode = 2
+
+[node name="Subfaction2Label" type="Label" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction2"]
+layout_mode = 2
+text = "Subfaction 2"
+horizontal_alignment = 1
+
+[node name="Subfaction2Container" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction2"]
+layout_mode = 2
+
+[node name="Subfaction3" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer"]
+layout_mode = 2
+
+[node name="Subfaction3Label" type="Label" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction3"]
+layout_mode = 2
+text = "Subfaction 3"
+horizontal_alignment = 1
+
+[node name="Subfaction3Container" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Subfaction3"]
+layout_mode = 2
+
+[node name="Generic" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer"]
+layout_mode = 2
+
+[node name="GenericLabel" type="Label" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Generic"]
+layout_mode = 2
+text = "Generics"
+horizontal_alignment = 1
+
+[node name="GenericContainer" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer/DeckContainer/Generic"]
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="BGPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardContainer" type="GridContainer" parent="BGPanel/HBoxContainer/ScrollContainer2"]
+layout_mode = 2
+columns = 3
+
+[node name="CardCountLabel" type="Label" parent="BGPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Card Count: 0"
+
+[node name="FilterDropdownContainer" type="HBoxContainer" parent="BGPanel"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="FactionDropdown" type="OptionButton" parent="BGPanel/FilterDropdownContainer"]
+layout_mode = 2
+item_count = 5
+selected = 0
+popup/item_0/text = "Any Faction"
+popup/item_0/id = 0
+popup/item_1/text = "Prophets"
+popup/item_1/id = 1
+popup/item_2/text = "Swarm"
+popup/item_2/id = 2
+popup/item_3/text = "Recursion"
+popup/item_3/id = 3
+popup/item_4/text = "UMC"
+popup/item_4/id = 4
+
+[node name="SubfactionDropdown" type="OptionButton" parent="BGPanel/FilterDropdownContainer"]
+layout_mode = 2
+item_count = 7
+selected = 0
+popup/item_0/text = "Any Subfaction"
+popup/item_0/id = 0
+popup/item_1/text = "None"
+popup/item_1/id = 1
+popup/item_2/text = "Subfaction 1"
+popup/item_2/id = 2
+popup/item_3/text = "Subfaction 2"
+popup/item_3/id = 3
+popup/item_4/text = "Subfaction 3"
+popup/item_4/id = 4
+popup/item_5/text = "Subfaction 4"
+popup/item_5/id = 5
+popup/item_6/text = "Subfaction 5"
+popup/item_6/id = 6
+
+[node name="TypeDropdown" type="OptionButton" parent="BGPanel/FilterDropdownContainer"]
+layout_mode = 2
+item_count = 11
+selected = 0
+popup/item_0/text = "Any Type"
+popup/item_0/id = 0
+popup/item_1/text = "Action"
+popup/item_1/id = 1
+popup/item_2/text = "Attack Action"
+popup/item_2/id = 2
+popup/item_3/text = "Attack Reaction"
+popup/item_3/id = 3
+popup/item_4/text = "Augment"
+popup/item_4/id = 4
+popup/item_5/text = "Aura"
+popup/item_5/id = 5
+popup/item_6/text = "Character"
+popup/item_6/id = 6
+popup/item_7/text = "Defense Reaction"
+popup/item_7/id = 7
+popup/item_8/text = "Instant"
+popup/item_8/id = 8
+popup/item_9/text = "Item"
+popup/item_9/id = 9
+popup/item_10/text = "Warrior"
+popup/item_10/id = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BGPanel"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 31.0
+
+[node name="SaveButton" type="Button" parent="BGPanel/HBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="BGPanel/HBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Load"
+
+[node name="FileMenuButton" type="MenuButton" parent="BGPanel/HBoxContainer2"]
+layout_mode = 2
+text = "File"
+item_count = 4
+popup/item_0/text = "Save"
+popup/item_0/id = 0
+popup/item_1/text = "Load"
+popup/item_1/id = 1
+popup/item_2/text = "Export to PDF"
+popup/item_2/id = 2
+popup/item_3/text = "Export to TTS"
+popup/item_3/id = 3
+
+[node name="LoadFileDialog" type="FileDialog" parent="."]
+mode = 2
+title = "Open a File"
+initial_position = 2
+size = Vector2i(312, 600)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.deck")
+use_native_dialog = true
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+mode = 2
+initial_position = 2
+access = 2
+filters = PackedStringArray("*.deck")
+use_native_dialog = true
+
+[node name="ExportToPDFFileDialog" type="FileDialog" parent="."]
+mode = 2
+title = "Save as..."
+initial_position = 2
+access = 2
+filters = PackedStringArray("*.pdf")
+use_native_dialog = true
+
+[node name="ExportToTTSFileDialog" type="FileDialog" parent="."]
+access = 2
+filters = PackedStringArray("*.png")
+use_native_dialog = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(40, 40)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="DrawContainer" type="SubViewportContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 607.575
+offset_right = 647.575
+offset_bottom = 40.0
+
+[node name="DeckExporter" type="Node" parent="."]
+script = ExtResource("2_o18ac")

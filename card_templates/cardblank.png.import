@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://qbkuolv5mj4y"
+path="res://.godot/imported/cardblank.png-ca373ccf74a09078b95051ebba25996f.image"
+
+[deps]
+
+source_file="res://card_templates/cardblank.png"
+dest_files=["res://.godot/imported/cardblank.png-ca373ccf74a09078b95051ebba25996f.image"]
+
+[params]
+

@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwyit7631hf81"]
+
+[ext_resource type="Script" path="res://MainScript.gd" id="1_malgt"]
+[ext_resource type="Script" path="res://Deck.gd" id="2_mjc2i"]
+
+[node name="MainView" type="Control" node_paths=PackedStringArray("cardContainer", "deckContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_malgt")
+cardContainer = NodePath("BGPanel/HBoxContainer/ScrollContainer2/CardContainer")
+deckContainer = NodePath("BGPanel/HBoxContainer/ScrollContainer/DeckContainer")
+
+[node name="BGPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBar" type="MenuBar" parent="BGPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BGPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BGPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckContainer" type="VBoxContainer" parent="BGPanel/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="BGPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardContainer" type="GridContainer" parent="BGPanel/HBoxContainer/ScrollContainer2"]
+layout_mode = 2
+columns = 3
+
+[node name="Deck" type="Node" parent="."]
+script = ExtResource("2_mjc2i")

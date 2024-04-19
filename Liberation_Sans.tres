@@ -1,0 +1,11 @@
+[gd_resource type="SystemFont" load_steps=3 format=3 uid="uid://boudvhjemcqnk"]
+
+[ext_resource type="FontFile" uid="uid://fgrgfwms25sa" path="res://Symbola.ttf" id="1_n4ti8"]
+
+[sub_resource type="SystemFont" id="SystemFont_k0ia7"]
+font_names = PackedStringArray("DejaVu Sans")
+
+[resource]
+fallbacks = Array[Font]([SubResource("SystemFont_k0ia7"), ExtResource("1_n4ti8")])
+font_names = PackedStringArray("Liberation Sans")
+allow_system_fallback = false
